@@ -13,5 +13,5 @@ def extendEuclid(a,b):
         (x, y) =  (x2 - q*x1, y2 - q*y1)
         (x1, x2, y1, y2) = (x, x1, y, y1)
         (u, v) = (v, r)
-    return (u,x,y)
+    return (u,x1,x2)
 print(extendEuclid(int(input()), int(input())))
