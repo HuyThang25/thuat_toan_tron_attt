@@ -15,10 +15,8 @@ def convertWordByteToDecimal(a,w,p):
     for i in range(0,t):
         n=(n<<w) +a[i]
     return n
-def addition(a,b,w,p):
-    arrA=convertDecimalToWordByte(a,w,p)
+def addition(arrA,arrB,w,p):
     arrA.reverse()
-    arrB=convertDecimalToWordByte(b,w,p)
     arrB.reverse()
     c=[]
     m= round(math.log(p,2))
@@ -29,10 +27,8 @@ def addition(a,b,w,p):
         e=((arrA[i]+arrB[i]+e)>>8)&1
     c.reverse()
     return (e,convertWordByteToDecimal(c,w,p))
-def subtraction(a,b,w,p):
-    arrA=convertDecimalToWordByte(a,w,p)
+def subtraction(arrA,arrB,w,p):
     arrA.reverse()
-    arrB=convertDecimalToWordByte(b,w,p)
     arrB.reverse()
     c=[]
     m= round(math.log(p,2))
@@ -43,10 +39,8 @@ def subtraction(a,b,w,p):
        e=((arrA[i]-arrB[i]-e)>>8)&1
     c.reverse()
     return (e,c)
-def multiprecision(a,b,w,p):
-    arrA=convertDecimalToWordByte(a,w,p)
+def multiprecision(arrA,arrB,w,p):
     arrA.reverse()
-    arrB=convertDecimalToWordByte(b,w,p)
     arrB.reverse()
     m= round(math.log(p,2))
     t = round(m/w)
