@@ -1,5 +1,5 @@
 import math
-(w,p)=(8,214748364)
+(w,p)=(8,2**31)
 def convertDecimalToWordByte(n,w,p):
     m= round(math.log(p,2))
     t = round(m/w)
@@ -12,6 +12,7 @@ def convertWordByteToDecimal(a,w,p):
     n=0
     m= round(math.log(p,2))
     t = round(m/w)
+    print(t)
     for i in range(0,t):
         n=(n<<w) +a[i]
     return n
@@ -35,7 +36,7 @@ def subtraction(arrA,arrB,w,p):
     t = round(m/w)
     e=0
     for i in range(0,t):
-       c.append((arrA[i]-arrB[i]-e)&0xff)
+       c.append((arrA[i]-arrB[i]-e)&(2**w-1))
        e=((arrA[i]-arrB[i]-e)>>8)&1
     c.reverse()
     return (e,c)
@@ -53,12 +54,10 @@ def multiprecision(arrA,arrB,w,p):
             c[i+j] = sum&0xff
         c[i+t] = u
     c.reverse()
+    print(c)
     return (c)
-a=convertWordByteToDecimal([0, 11, 173, 248],w,p)
-b=convertWordByteToDecimal([0, 1, 226, 64],w,p)
 def squaring(a,w,p):
     return multiprecision(a,a,w,p)
-print(squaring(a,w,p))
 
 
 
