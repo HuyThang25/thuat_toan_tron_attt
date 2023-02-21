@@ -12,7 +12,6 @@ def convertWordByteToDecimal(a,w,p):
     n=0
     m= round(math.log(p,2))
     t = round(m/w)
-    print(t)
     for i in range(0,t):
         n=(n<<w) +a[i]
     return n
@@ -59,7 +58,15 @@ def multiprecision(arrA,arrB,w,p):
 def squaring(a,w,p):
     return multiprecision(a,a,w,p)
 
-
+a = [157, 0, 173, 23]
+b = [169, 1, 0, 64]
+res = [1,70, 1, 173, 87]
+c = [70, 1, 173, 87]
+print(a,' = ',convertWordByteToDecimal(a,w,p))
+print(b,' = ',convertWordByteToDecimal(b,w,p))
+print('a + b = ',convertWordByteToDecimal(a,w,p)+convertWordByteToDecimal(b,w,p))
+print( res,' = ',convertWordByteToDecimal(res,w,2**40)%p)
+print('c = ',convertWordByteToDecimal(c,w,p))
 
 
     
