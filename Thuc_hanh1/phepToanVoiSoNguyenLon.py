@@ -55,21 +55,23 @@ def multiprecision(arrA,arrB,w,p):
     c.reverse()
     print(c)
     return (c)
+
 def squaring(a,w,p):
     return multiprecision(a,a,w,p)
-def additionin(arrA:list,arrB:list,w,p):
+
+def additionInFp(arrA:list,arrB:list,w,p):
     e,arrC = addition(arrA,arrB,w,p)
     if (e == 1) or (convertWordByteToDecimal(arrC,w,p)>=p):
         arrP = convertDecimalToWordByte(p,w,p)
         return subtraction(arrC,arrP,w,p)
     return e,arrC
-def subtractionin(arrA:list,arrB:list,w,p):
+def subtractionInFp(arrA:list,arrB:list,w,p):
     e,arrC = subtraction(arrA,arrB,w,p)
     if (e == 1):
         arrP = convertDecimalToWordByte(p,w,p)
         return addition(arrC,arrP,w,p)
     return e,arrC
 
-print(subtractionin([0, 1, 226, 64],[0, 11, 173, 248],w,p))
+
 
     

@@ -1,5 +1,14 @@
 import math
 import random 
+import time
+random.seed(time.time())
+def gcd(a,b):
+    while b>0:
+        tmp = a % b
+        a = b
+        b = tmp
+    return a
+#-----------------------------------------------------#  
 def eratothenes(n):
     prime=[True for i in range(0,n+1)]
     prime[0] = False
@@ -10,19 +19,31 @@ def eratothenes(n):
             for i in range(p+p,n+1,p):
                 prime[i]=False
     return prime
-            
+#-----------------------------------------------------#  
         
-eratothenes(97)
 def eratothenesPhanDoan(n):
     prime=[True for i in range(0,n+1)]
-    delta = round(math.sqrt(n))
-    prime[0:(delta+1)] = eratothenes(delta)
-    for i in range(delta*2,n,delta):
-        for p in range(2,round(math.sqrt(i))):
-            if prime[j]==True:
-                pass
+    delta = int(math.sqrt(n))
+    tmp = eratothenes(delta)
+    for i in range(delta+1):
+        prime[i]=tmp[i] 
+    
+    for i in range(delta,n,delta): #Duyệt các phân đoạn
+        # m: giá trị lớn nhất trong đoạn
+        m = i + delta -1
+        if m > n:
+            m = n
+        
+        for j in range(2,int(math.sqrt(m))+1): #Duyệt các giá trị từ 2 đến căn(m)
+            if prime[j]: # Nếu là số nguyên tố
+                for p in range(i-i%j,m+1,j): #Duyệt các bội của số nguyên tố đó nằm trong phân đoạn đang xét
+                    prime[p]=False
+#-----------------------------------------------------#      
 def isPrime(n):
-    pass
+    for i in range(2,int(math.sqrt(n))+1):
+        if n % i == 0: return False
+    return True
+
 #-----------------------------------------------------#  
 def phanTichThuaSoNguyenTo(n):
     if isPrime(n):
@@ -60,12 +81,11 @@ def nhanBinhPhuongLap(a,k,n):
         k=k>>1
     return b
 #-----------------------------------------------------#       
-def getRandom(min,max):
-    return round(random.random()*(max-min))+min 
-def isPrimeMillerRabin(n):
+
+def isPrimeMillerRabin(n,t):
     if (n==2): 
         return True
-    if (n%2==0):
+    if (n%2==0) or (n<3):
         return False
     #Phân tích n thành dạng r*2^s
     r = n-1
@@ -74,8 +94,8 @@ def isPrimeMillerRabin(n):
        s+=1
        r = int(r/2)
     
-    for i in range(10):
-        a = getRandom(2,n-1)
+    for i in range(t):
+        a = random.randint(2,n-1)
         y = nhanBinhPhuongLap(a,r,n)
         if (y!=1) and (y!=(n-1)):
             j=1
@@ -87,6 +107,48 @@ def isPrimeMillerRabin(n):
             if y != (n-1):
                 return False
     return True 
+#---------------------------------------------------------#
+def isPrimeFermat(n,t):
+    if n==2: return True
+    if n<2: return False
+    if n%2==0:
+        return False
+    for i in range(t):
+        a= random.randint(2,n)
+        if nhanBinhPhuongLap(a,n-1,n)!= 1:
+            return False 
+    return True
+
+#---------------------------------------------------------#
+def PollardsRho(n):
+    a,b =2,2
+    while (True):
+        a = (a**2+1)%n
+        b = (b**2+1)%n
+        b = (b**2+1)%n
+        d= gcd(a-b,n)
+        if 1<d<n: return d
+        if d == n: return None
+
+#---------------------------------------------------------#
+
+def getRandomBit(k):
+    return random.randint(0,2**k-1)
+
+def RandomSearch(k,t):
+    n=getRandomBit(k)
+    for i in range(2,100):
+        if n == i: continue
+        if n % i ==0: return RandomSearch(k,t)
+    if isPrimeMillerRabin(n,t):
+        return n
+    return RandomSearch(k,t)
+
+
+    
+#---------------------------------------------------------#
+
+
  
 
 
