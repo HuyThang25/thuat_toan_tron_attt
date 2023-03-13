@@ -50,7 +50,7 @@ def Knuth_Morris_Pratt(p,T):
     f = failure(p)
     i=0
     j=0
-    while(i<(len(T)-len(p))):
+    while(i<=(len(T)-len(p))):
         while (j<len(p)) and (p[j]==T[i+j]):
             j+=1
         if j == len(p):
@@ -59,5 +59,5 @@ def Knuth_Morris_Pratt(p,T):
             i = i+j-f[j]
             if f[j]==-1: j=0
             else: j = f[j]
-
-print(Knuth_Morris_Pratt('abacab','abacaabadcabacabaabb'))
+    return -1
+print(Knuth_Morris_Pratt('huya','buihuythang'))
