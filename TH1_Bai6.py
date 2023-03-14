@@ -1,4 +1,4 @@
-from phepToanVoiSoNguyenLon import *
+from Thu_Vien.phepToanVoiSoNguyenLon import *
 w=8
 p = int(input('Nhập vào p: '))
 a = int(input('Nhập vào a: '))

@@ -60,4 +60,4 @@ def Knuth_Morris_Pratt(p,T):
             if f[j]==-1: j=0
             else: j = f[j]
     return -1
-print(Knuth_Morris_Pratt('huya','buihuythang'))
+print(Boyer_Moore('aabcab','abacaabadcabacabaabb'))
