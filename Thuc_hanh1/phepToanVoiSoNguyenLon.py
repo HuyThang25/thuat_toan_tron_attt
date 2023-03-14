@@ -1,5 +1,5 @@
 import math
-(w,p)=(8,2147483647)
+
 def convertDecimalToWordByte(n,w,p):
     m= round(math.log(p,2))
     t = round(m/w)
@@ -26,6 +26,8 @@ def addition(arrA,arrB,w,p):
         c.append((arrA[i]+arrB[i]+e)&(2**w-1))
         e=((arrA[i]+arrB[i]+e)>>w)&1
     c.reverse()
+    arrA.reverse()
+    arrB.reverse()
     return (e,c)
 def subtraction(arrA,arrB,w,p):
     arrA.reverse()
@@ -38,6 +40,8 @@ def subtraction(arrA,arrB,w,p):
        c.append((arrA[i]-arrB[i]-e)&(2**w-1))
        e=((arrA[i]-arrB[i]-e)>>w)&1
     c.reverse()
+    arrA.reverse()
+    arrB.reverse()
     return (e,c)
 def multiprecision(arrA,arrB,w,p):
     arrA.reverse()
@@ -53,7 +57,8 @@ def multiprecision(arrA,arrB,w,p):
             c[i+j] = sum&0xff
         c[i+t] = u
     c.reverse()
-    print(c)
+    arrA.reverse()
+    arrB.reverse()
     return (c)
 
 def squaring(a,w,p):
@@ -66,7 +71,9 @@ def additionInFp(arrA:list,arrB:list,w,p):
         return subtraction(arrC,arrP,w,p)
     return e,arrC
 def subtractionInFp(arrA:list,arrB:list,w,p):
-    e,arrC = subtraction(arrA,arrB,w,p)
+    
+    e,arrC=subtraction(arrA,arrB,w,p)
+    
     if (e == 1):
         arrP = convertDecimalToWordByte(p,w,p)
         return addition(arrC,arrP,w,p)
