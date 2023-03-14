@@ -7,4 +7,4 @@ b = int(input('Nhập vào b: '))
 arrA = convertDecimalToWordByte(a,w,p)
 arrB = convertDecimalToWordByte(b,w,p)
 
-print(multiprecision(arrA,arrB,w,p))
+print('Tích của a và b =',multiprecision(arrA,arrB,w,p))

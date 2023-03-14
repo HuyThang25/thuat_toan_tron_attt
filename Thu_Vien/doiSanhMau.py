@@ -32,6 +32,7 @@ def Boyer_Moore(p,T):
         else: 
             i = i+len(p)-min(j,1+L[T[i]])
             j = len(p)-1
+    return -1
     
     
 def failure(p):
@@ -60,4 +61,3 @@ def Knuth_Morris_Pratt(p,T):
             if f[j]==-1: j=0
             else: j = f[j]
     return -1
-print(Boyer_Moore('aabcab','abacaabadcabacabaabb'))

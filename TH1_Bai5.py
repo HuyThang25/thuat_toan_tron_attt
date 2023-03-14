@@ -6,7 +6,7 @@ b = int(input('Nhập vào b: '))
 
 arrA = convertDecimalToWordByte(a,w,p)
 arrB = convertDecimalToWordByte(b,w,p)
-print('Trừ chính xác bôi a và b:',subtraction(arrA,arrB,w,p))
+print('Hiệu chính xác bôi a và b:',subtraction(arrA,arrB,w,p))
 
 e,sub =  subtractionInFp(arrA,arrB,w,p)
 

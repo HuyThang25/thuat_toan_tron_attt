@@ -28,7 +28,7 @@ def eratothenesPhanDoan(n):
     for i in range(delta+1):
         prime[i]=tmp[i] 
     
-    for i in range(delta,n,delta): #Duyệt các phân đoạn
+    for i in range(delta,n+1,delta): #Duyệt các phân đoạn
         # m: giá trị lớn nhất trong đoạn
         m = i + delta -1
         if m > n:
@@ -38,6 +38,7 @@ def eratothenesPhanDoan(n):
             if prime[j]: # Nếu là số nguyên tố
                 for p in range(i-i%j,m+1,j): #Duyệt các bội của số nguyên tố đó nằm trong phân đoạn đang xét
                     prime[p]=False
+    return prime
 #-----------------------------------------------------#      
 def isPrime(n):
     for i in range(2,int(math.sqrt(n))+1):
@@ -120,15 +121,15 @@ def isPrimeFermat(n,t):
     return True
 
 #---------------------------------------------------------#
-def PollardsRho(n):
+def PollardsRho(n,c):
     a,b =2,2
     while (True):
-        a = (a**2+1)%n
-        b = (b**2+1)%n
-        b = (b**2+1)%n
+        a = (a**2+c)%n
+        b = (b**2+c)%n
+        b = (b**2+c)%n
         d= gcd(a-b,n)
         if 1<d<n: return d
-        if d == n: return None
+        if d == n: return PollardsRho(n,c+1)
 
 #---------------------------------------------------------#
 

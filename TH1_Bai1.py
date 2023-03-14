@@ -5,7 +5,7 @@ a = int(input())
 print(convertDecimalToWordByte(a,w,p))
 
 b=[]
-print("Nhập vào mảng: ")
+print("Nhập vào ma trận: ")
 for i in range(4):
    b.append(int(input())) 
 print(convertWordByteToDecimal(b,w,p))
