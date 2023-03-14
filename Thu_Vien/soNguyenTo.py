@@ -27,7 +27,6 @@ def eratothenesPhanDoan(n):
     tmp = eratothenes(delta)
     for i in range(delta+1):
         prime[i]=tmp[i] 
-    
     for i in range(delta,n+1,delta): #Duyệt các phân đoạn
         # m: giá trị lớn nhất trong đoạn
         m = i + delta -1
@@ -37,10 +36,12 @@ def eratothenesPhanDoan(n):
         for j in range(2,int(math.sqrt(m))+1): #Duyệt các giá trị từ 2 đến căn(m)
             if prime[j]: # Nếu là số nguyên tố
                 for p in range(i-i%j,m+1,j): #Duyệt các bội của số nguyên tố đó nằm trong phân đoạn đang xét
-                    prime[p]=False
+                    if (i<=p<=m):
+                        prime[p]=False
     return prime
 #-----------------------------------------------------#      
 def isPrime(n):
+    if n<2: return False
     for i in range(2,int(math.sqrt(n))+1):
         if n % i == 0: return False
     return True
