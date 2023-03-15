@@ -34,4 +34,5 @@ if res==-1:
 else:
     print('Tìm thấy s1 tại vị trí',res)
     
-    
+# Thuật toán BM hiệu quả trong chuỗi chứa tập kí tự lớn như bảng chữ cái lớn A..Z,a..z,1..9,..
+# Không hiệu quả trong trường chứa tập kí tự nhỏ như nhị phân
