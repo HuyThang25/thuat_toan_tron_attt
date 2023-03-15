@@ -4,14 +4,12 @@ a = int(input('Nhập vào A: '))
 b = int(input('Nhập vào B: '))
 
 prime = eratothenes(b)
-
-count = 0
-for i in range(a):
-    if prime[i]:
-        count+=1
-
+sum=0
 for i in range(a,b+1):
-    if prime[count]:
-        print(i,end=' ')
     if prime[i]:
-        count+=1
+        sum+=i
+
+if isPrime(sum):
+    print('YES')
+else: 
+    print('NO')
