@@ -15,4 +15,5 @@ for i in range(a,b+1):
         res+=1
     if prime[i]:
         count+=1
-print(res)
+print(f'Có {res} số siêu nguyên tố trong khoảng [{a},{b}] là:')
+

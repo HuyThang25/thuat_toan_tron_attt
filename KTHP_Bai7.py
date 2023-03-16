@@ -12,8 +12,19 @@ def reverse_interger(n):
         n=n//10
     return r
 
-n = int(input('Nhập vào n: '))
-print(f'Các số emirp nhỏ hơn {n}: ')
+def laySoNguyenDuong():
+    n = int(input())
+    while n<=0:
+        n = int(input('Vui lòng nhập vào một số nguyên dương: '))
+    return n
+
+print('Nhập vào số nguyên dương n: ',end='')
+n = laySoNguyenDuong()
+print(f'Các số emirp nhỏ hơn hoặc bằng {n}: ')
+emty = True
 for i in range(2,n+1):
     if isPrime(i) and isPrime(reverse_interger(i)):
         print(i,end=' ')
+        emty = False
+if emty:
+    print('Không có số nào.')

@@ -14,8 +14,9 @@ for i in range(n):
         prime.append(x)
 print('Mảng sau khi sinh ngẫu nhiên: ')
 print(arr)
-if prime==[]: print('Không có số nguyên tố nào trong mảng')
+if len(prime)==0: print('Không có số nguyên tố nào trong mảng')
 else: 
     print('Các số nguyên tố trong mảng:')
-    print(prime)
+    for i in prime:
+        print(i,end=' ')
         

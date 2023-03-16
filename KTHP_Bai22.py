@@ -15,5 +15,5 @@ sum = 0
 for i in range(0,len(res)-1):
     for j in range(i+1,len(res)):
         sum+= res[i]*res[j]
-        
-print(sum)
+     
+print('Tổng thoả mãn =',sum)

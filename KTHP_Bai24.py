@@ -15,8 +15,11 @@ for i in range(1,ceil(sqrt(b))):
                 res.append(i*i+j*j)
 res =[int(i) for i in set(res)]
 res.sort()
-for i in res:
-    print(i,end=' ')
+if len(res)==0:
+    print('Không có số nào')
+else:
+    for i in res:
+        print(i,end=' ')
 
         
 
