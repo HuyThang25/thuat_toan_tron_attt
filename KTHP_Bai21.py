@@ -9,9 +9,10 @@ count = 0
 for i in range(a):
     if prime[i]:
         count+=1
-
+res=0
 for i in range(a,b+1):
     if prime[count]:
-        print(i,end=' ')
+        res+=1
     if prime[i]:
         count+=1
+print(res)

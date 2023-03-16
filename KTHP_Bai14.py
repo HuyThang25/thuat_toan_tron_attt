@@ -7,8 +7,8 @@ def reverse_interger(n):
         n=n//10
     return r
 
-prime = eratothenes(999)
-
 for i in range(100,1000):
-    if prime[reverse_interger(i)]:
-        print(i,end=' ')
+    if isPrime(i):
+        r = reverse_interger(i)
+        if int(r**(1/3)) == (r**(1/3)):
+            print(i,end=' ')
