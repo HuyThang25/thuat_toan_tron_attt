@@ -15,5 +15,5 @@ def reverse_interger(n):
 n = int(input('Nhập vào n: '))
 print(f'Các số emirp nhỏ hơn {n}: ')
 for i in range(2,n+1):
-    if isPrime(reverse_interger(i)):
+    if isPrime(i) and isPrime(reverse_interger(i)):
         print(i,end=' ')
