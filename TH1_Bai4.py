@@ -10,4 +10,7 @@ arrB = convertDecimalToWordByte(b,w,p)
 print('Cộng chính xác bôi a và b:',addition(arrA,arrB,w,p))
 
 e,sum = additionInFp(arrA,arrB,w,p)
-print('Cộng trên trường Fp:',sum)
+print('Cộng trên trường Fp:')
+print('Dạng ma trận: ',sum)
+print('Dạng số nguyên: ',convertWordByteToDecimal(sum,w,p))
+

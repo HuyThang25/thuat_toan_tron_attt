@@ -50,7 +50,14 @@ def isPrime(n):
     for i in range(2,int(math.sqrt(n))+1):
         if n % i == 0: return False
     return True
-n = int(input('Nhập vào N: '))
+def laySoNguyenDuong():
+    n = int(input())
+    while n<=0:
+        n = int(input('Vui lòng nhập vào một số nguyên dương: '))
+    return n
+
+print('Nhập vào n: ')
+n = laySoNguyenDuong()
 p = RandomSearch()
 
 print(f'Số p khi sinh là: {p}')

@@ -1,7 +1,13 @@
 from Thu_Vien.soNguyenTo import *
 from Thu_Vien.euclid import *
+def laySoNguyenDuong():
+    n = int(input())
+    while n<=0:
+        n = int(input('Vui lòng nhập vào một số nguyên dương: '))
+    return n
 
-n = int(input('Nhập vào số phần tử mảng: '))
+print('Nhập vào n: ')
+n = laySoNguyenDuong()
 print('Nhập vào mảng: ')
 arr=[int(input()) for i in range(n)]
 max=arr[0]

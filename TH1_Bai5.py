@@ -10,4 +10,6 @@ print('Hiệu chính xác bôi a và b:',subtraction(arrA,arrB,w,p))
 
 e,sub =  subtractionInFp(arrA,arrB,w,p)
 
-print('Trừ trên trường Fp:',sub)
+print('Trừ trên trường Fp:')
+print('Dạng ma trận: ',sub)
+print('Dạng số nguyên: ',convertWordByteToDecimal(sub,w,p))

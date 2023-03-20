@@ -1,7 +1,7 @@
 from Thu_Vien.phepToanVoiSoNguyenLon import *
 p,w = 2147483647,8
 
-a = int(input())
+a = int(input('Nhập vào a: '))
 print(convertDecimalToWordByte(a,w,p))
 
 b=[]

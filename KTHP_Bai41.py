@@ -1,4 +1,10 @@
 import math
+def laySoNguyenDuong():
+    n = int(input())
+    while n<=0:
+        n = int(input('Vui lòng nhập vào một số nguyên dương: '))
+    return n
+
 def nhanBinhPhuongLap(a,k,n):
     b=1
     if (k==0):
@@ -19,10 +25,12 @@ def isPrime(n):
     for i in range(2,int(math.sqrt(n))+1):
         if n % i == 0: return False
     return True
-a = int(input('Nhập vào a: '))
-k = int(input('Nhập vào k: '))
-n = int(input('Nhập vào n: '))
-
+print('Nhập vào a: ')
+a = laySoNguyenDuong()
+print('Nhập vào k: ')
+k = laySoNguyenDuong()
+print('Nhập vào n: ')
+n = laySoNguyenDuong
 if isPrime(nhanBinhPhuongLap(a,k,n)):
     print(f'{a}^{k} mod {n} là một số nguyên tố')
 else:

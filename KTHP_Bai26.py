@@ -1,7 +1,13 @@
 from Thu_Vien.soNguyenTo import *
 from math import *
+def laySoNguyenDuong():
+    n = int(input())
+    while n<=0:
+        n = int(input('Vui lòng nhập vào một số nguyên dương: '))
+    return n
 
-n = int(input('Nhập vào n: '))
+print('Nhập vào n: ')
+n = laySoNguyenDuong()
 
 prime = eratothenes(int(sqrt(n)))
 
@@ -25,7 +31,6 @@ for i in range(n):
 
 # for i in res:
 #     for x in range(i,n,i):
-#         # print(x,end=' ')
 #         if check[x] == False:       
 #             check[x] = True
 #             print(x,end=' ')
