@@ -10,11 +10,15 @@ print('Nhập vào a: ')
 a = laySoNguyenDuong()
 print('Nhập vào b: ')
 b = laySoNguyenDuong()
-prime = eratothenes(999)
+prime = eratothenes(b)
+emty = True
+print('Các cặp số thoả mãn: ')
 for i in range(a,b):
     for j in range(i+1,b+1):
         if prime[gcd(i,j)]:
+            emty = False
             print(f'({i},{j})',end=' ')
-
+if emty:
+    print('Không có cặp số nào')
 
 

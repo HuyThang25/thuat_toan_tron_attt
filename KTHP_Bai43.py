@@ -12,12 +12,11 @@ def isPrime(n):
 
 def RandomSearch():
     n=random.randint(1,100)
-    for i in range(2,100):
+    for i in range(2,int(math.sqrt(n))+1):
         if n == i: continue
         if n % i ==0: return RandomSearch()
-    if isPrime(n):
-        return n
-    return RandomSearch()
+    return n
+
 
 # def getRandomBit(k):
 #     return random.randint(0,2**k-1)

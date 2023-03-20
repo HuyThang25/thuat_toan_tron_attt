@@ -22,9 +22,14 @@ def isSnum(x):
         if res[i]>x: return False
         if x%res[i]==0: return True
     return False
+print('Các số thoả mãn: ')
+emty = True
 for i in range(n):
     if isSnum(i):
         print(i,end=' ')
+        emty = False
+if emty:
+    print('Không có số nào.')
 
 # # Cách 2
 # check = [False for i in range(n)]
