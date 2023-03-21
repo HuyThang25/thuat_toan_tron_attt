@@ -124,11 +124,12 @@ def isPrimeFermat(n,t):
 #---------------------------------------------------------#
 def PollardsRho(n,c):
     a,b =2,2
+    if (c==10): return -1
     while (True):
         a = (a**2+c)%n
         b = (b**2+c)%n
         b = (b**2+c)%n
-        d= gcd(a-b,n)
+        d= gcd(abs(a-b),n)
         if 1<d<n: return d
         if d == n: return PollardsRho(n,c+1)
 
