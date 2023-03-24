@@ -21,7 +21,7 @@ def lastOccurrence(p,T):# Hàm tìm vị trí của các phần tử của T tro
 def Boyer_Moore(p,T):
     x,f = lastOccurrence(p,T) # x: chứa chữ cái trong T, f chứa vị trí của những chữ cái đó trong p
     L = dict(zip(x,f))# gộp x và f thành dict có dạng {x[i]:f[i]}
-    # phần dưới như trong thuật toán
+    # phần dưới như trong slide
     i = len(p)-1
     j = len(p)-1
     while(i<len(T)):
