@@ -1,8 +1,8 @@
-def div_and_mod(a,b):
-    bin_a = a
-    bin_b = b
+def div_and_mod(a,b):  
     dec_a = int(a,2)
     dec_b = int(b,2)
+    bin_a = bin(dec_a)[2:]
+    bin_b = bin(dec_b)[2:]
     dec_thuong = 0
     while len(bin_a) >= len(bin_b) and (dec_a != 0):
         dec_thuong = dec_thuong+(1<<(len(bin_a)-len(bin_b))) #thương = thương + x^(bậc a(x) - bậc b(x))
@@ -23,13 +23,23 @@ def multi(a,b,gx):
     return tmp_mod
 def display(a):
     if a == '1': print('1')
-    print(f'x^{len(a)-1}',end=' ') 
-    for i in range(1,len(a)):
-        if a[i]=='1':
-            if i == len(a)-1:
-                print('+ 1')
-            else:
-                print(f'+ x^{len(a)-1-i}',end=' ')
+    elif a== '0': print('0')
+    else:
+        vt = 0
+        for i in range(len(a)):
+            if a[i] =='1':
+                if i==len(a)-1:
+                    print('1',end=' ')
+                else:
+                    print(f'x^{len(a)-1-i}',end=' ')   
+                vt = i
+                break
+        for i in range(vt+1,len(a)):
+            if a[i]=='1':
+                if i == len(a)-1:
+                    print('+ 1',end=' ')
+                else:
+                    print(f'+ x^{len(a)-1-i}',end=' ')
 def extendEuclid(a,b):
     (u,v) = (a,b)
     (x1,x2) = ('0','1')
